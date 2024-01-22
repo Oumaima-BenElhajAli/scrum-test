@@ -1,0 +1,46 @@
+<!-- icon-list.component.html -->
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<!-- mac-dock.component.html -->
+
+<div class="parent" id="parent" >
+    <div *ngFor="let icon of icons" class="icon">
+        <div class="descripcion" *ngIf="icon.showSplit">
+            <div><img src="/assets/split screen.png" alt="" class="split-img" (click)="icon.showSplit=!icon.showSplit"/></div>
+        </div>
+        <img class="icon_img" [src]="icon.icon" alt="" (click)="icon.showSplit=!icon.showSplit" />
+    </div>
+</div>
+<br>
+<p-splitter [style]="{'height': '450px'}" [panelSizes]="[50,50]" *ngIf="panels[0].showPanel || panels[1].showPanel">
+    <ng-template pTemplate>
+        <p-splitter layout="vertical" [panelSizes]="[50,50]" [minSizes]="[10,10]">
+            <ng-template pTemplate  *ngIf="panels[0].showPanel">
+                <div class="col flex align-items-center justify-content-center">
+                    <!-- <img [src]="panels[0].interface"> -->
+                    <app-splitter-layouts></app-splitter-layouts>
+                </div>
+            </ng-template>
+            <ng-template pTemplate *ngIf="panels[1].showPanel">
+                <div class="col flex align-items-center justify-content-center" >
+                    <img [src]="panels[1].interface">
+                </div>
+            </ng-template>
+        </p-splitter>
+    </ng-template>
+    <ng-template pTemplate *ngIf="(panels[2].showPanel || panels[3].showPanel)==true">
+        <p-splitter layout="vertical" [panelSizes]="[50,50]" [minSizes]="[10,10]">
+            <ng-template pTemplate *ngIf="panels[2].showPanel">
+                <div class="col flex align-items-center justify-content-center">
+                    <img [src]="panels[2].interface">
+                </div>
+            </ng-template>
+            <ng-template pTemplate *ngIf="panels[3].showPanel">
+                <div class="col flex align-items-center justify-content-center">
+                    <img [src]="panels[3].interface">
+                </div>
+            </ng-template>
+        </p-splitter>
+    </ng-template>
+</p-splitter>

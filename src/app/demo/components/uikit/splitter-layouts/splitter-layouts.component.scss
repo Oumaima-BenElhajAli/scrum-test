@@ -1,0 +1,26 @@
+.container {
+	display: flex;
+	height: 100vh; /* This will make the container take up the full height of the viewport */
+}
+
+.left-panel {
+	background-color: #f2f2f2;
+	flex: 1; /* This will make the left panel take up an equal amount of space as the right panel */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.right-panel {
+	background-color: #cccccc;
+	flex: 1; /* This will make the right panel take up an equal amount of space as the left panel */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	box-sizing: border-box;
+}
